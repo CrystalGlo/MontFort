@@ -1,0 +1,186 @@
+﻿@model IEnumerable<MontFort.Models.Resident>
+
+@{
+    ViewBag.Title = "Liste des résidents";
+}
+
+<h3>@ViewBag.Title</h3>
+
+<p>
+    <img src="../../Content/Images/add_icon.png" style="width:25px; height:25px;"/>
+    <span style="font-size:medium">@Html.ActionLink("Ajouter un nouveau résident", "Create")</span>
+
+    @using (Html.BeginForm("Index","Residents",FormMethod.Get)) {    
+         <p> 
+             Prénom : @Html.TextBox("firstName")
+             Nom : @Html.TextBox("lastName")
+             <input type="submit" value="Chercher" />
+              @Html.ActionLink("Effacer la recherche", "Index", null, new { @class = "link-button" })
+         </p>          
+    } 
+
+</p>
+
+<!-- 
+  Bootstrap docs: https://getbootstrap.com/docs
+-->
+
+@foreach (var item in Model) {
+
+    <div class="col-md-2 residentContainer">
+      <div class="row">
+        <div class="col-md-1" style="padding-left:1px;">
+           @Html.DisplayFor(modelItem => item.ID)
+        </div>
+        <div class="col-md-12 img-responsive profile-img">
+          <img src="../../Content/Images/old-lady.jpg" style="width:140px;height:100px;"></img>
+        </div>   
+      </div>
+
+      <div class="row">
+        <h5 class="text-center informations" style="font-weight:bold;margin-top:5px;">
+            @if ( item.Gender == "Homme") 
+            { 
+                 <span>Mr</span>
+            }
+            else
+            {
+                <span>Mme</span>
+            }
+
+            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.LastName)
+        </h5>
+      </div>
+
+      <div>
+        <h5 class="text-center informations">
+            @Html.DisplayFor(modelItem => item.Age) ans - 
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </h5>
+      </div>
+
+      <div class="row features">
+        <div class="col col-md-6 temperature">
+          <span style="text-decoration-line:underline">Température</span>
+          <img src="../../Content/Images/thermometer_icon.png" style="width:25px; height:25px;margin-left:0px;"/>
+           <span>@Html.DisplayFor(modelItem => item.Room.ActualTempreatureValue)°C</span>
+        </div>
+        <div class="col col-md-6 cardiacFrequency">
+          <span style="text-decoration-line:underline">Fréq. card.</span>
+            <img src="../../Content/Images/redHeart_icon.png" style="width:18px; height:18px;margin-left:0px;"/>
+            <span>91 bpm</span>
+        </div>
+      </div>
+
+      <div class="row features">
+        <div class="col col-md-6 humidity">
+          <span style="text-decoration-line:underline">Humidité</span>
+            <img src="../../Content/Images/humidity_icon.png" style="width:25px; height:25px;margin:0px;"/>
+            <span>@Html.DisplayFor(modelItem => item.Room.ActualHumidityLevel)%</span>
+        </div>
+        <div class="col col-md-6 fallRisk">
+          <span style="text-decoration-line:underline">Chute</span>
+            <img src="../../Content/Images/fall_icon2.png" style="width:25px; height:25px;margin-left:0px;"/>
+            <span>15%</span>
+        </div>
+      </div>
+
+      <div class="row ">
+        <div class="col" style="height:45px;padding-left: 5px;">
+            <img src="../../Content/Images/calendar_icon.png" style="width:20px; height:20px;margin-left:0px;"/>    
+            <span>Consultation du médecin </span>
+            <span> 14h - 2018/04/24</span>
+        </div>  
+      </div>
+    <span style="font-size:smaller;">
+        @Html.ActionLink("Modifier", "Edit", new { id=item.ID }) |
+        @Html.ActionLink("Détails", "Details", new { id=item.ID }) |
+        @Html.ActionLink("Supprimer", "Delete", new { id=item.ID })
+    </span>
+    </div>
+    
+}
+
+@section Scripts
+{
+  <script src="resident.js"></script>
+  <link href="~/Content/resident.css" rel="stylesheet" />
+}
+
+<!-- <table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FolderNbr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Room.RoomNbr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InMotion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Place)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mandatary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FamilyMember)
+        </th>
+        <th></th>
+    </tr> 
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FolderNbr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Room.RoomNbr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InMotion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Place)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mandatary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FamilyMember)
+        </td>
+        <td>
+            @Html.ActionLink("Modifier", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Détails", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table> -->

@@ -1,0 +1,104 @@
+﻿@model MontFort.Models.Resident
+
+@{
+    ViewBag.Title = "Supprimer";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Êtes vous sûr de vouloir supprimer ce résident?</h3>
+<div>
+    <h4>Résident</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FolderNbr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FolderNbr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Room.RoomNbr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room.RoomNbr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InMotion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InMotion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Place)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Place)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mandatary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mandatary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilyMember)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilyMember)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Retour à la liste", "Index")
+        </div>
+    }
+</div>

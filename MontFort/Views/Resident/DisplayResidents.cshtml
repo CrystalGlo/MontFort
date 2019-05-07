@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Liste des résidents";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="main-container" style="background-color:lightgreen; border:3px solid darkgray;
+width: 220px; border-radius:2%;
+padding-left:15px; padding-right:15px;">
+    <div class="id-container" style="width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%; border:3px solid darkgray;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  text-align: center;
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 5px auto 10px;background-color:white">
+        <p id="resident_id">1</p>
+    </div>
+    <div class="picture-container">
+        <img src="~/Content/Images/app_icon.png" style="height:130px;display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;border:3px solid darkgray;"/>
+    </div>
+
+    <div class="name-container">
+        <p id="full_name" style="margin-top:5px; font-weight:bold; text-align:center;">Mme Catherine Bertrand</p>
+    </div>
+    <hr style="height:1px; border:0; border-top: 2px solid darkgray; margin: 0 0; padding:0;"/>
+    <div class="birthdate-container" style=" text-align:center;">
+        <p id="resident_age">82 ans
+            <span id="birth_date">19/07/1955</span>
+        </p>
+    </div>
+    <div class="health-container">
+        <div class="temp-hum-container" style="border: 3px solid darkgray; text-align:center; padding-left:2px;
+                display:inline-block; margin-left:0px;">
+            <p style="text-decoration-line:underline;">Température</p>
+            <p id="tempreature">22.4 C</p>
+            <p style="text-decoration-line:underline;">Humidité</p>
+            <p id="humidity">42%</p>
+        </div>
+        <div class="cardiac-container" style="border: 3px solid darkgray; text-align:center; padding-left:2px;
+                display:inline-block; margin-left:0px;">
+            <span style="text-decoration-line:underline; text-align:match-parent;">Fréquence cardiaque</span>
+            <p id="cardiac-freq">75</p>
+        </div>
+    </div>
+    <hr style="height:1px; border:0; border-top: 2px solid darkgray; margin: 0 0; padding:0;"/>
+    <div class="event-container" style=" text-align:center;">
+        <p>Évènement</p>
+        <p id="event">Coiffure 14/04/2018 17:30</p>
+    </div>
+</div>
+ 
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<link rel="stylesheet" href="Content/display_resident.css" type="text/css" />
+
+

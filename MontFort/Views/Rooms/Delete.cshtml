@@ -1,0 +1,152 @@
+﻿@model MontFort.Models.Room
+
+@{
+    ViewBag.Title = "Supprimer";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Êtes vous sûr de vouloir supprimer cette chambre?</h3>
+<div>
+    <h4>Chambre</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomNbr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomNbr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsRoomDoorOpen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsRoomDoorOpen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsBathroomDoorOpen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsBathroomDoorOpen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSmokeDetectorActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSmokeDetectorActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxSmokeValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxSmokeValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualSmokeValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualSmokeValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualHumidityLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualHumidityLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxHumidityValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxHumidityValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualTempreatureValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualTempreatureValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxTempreatureValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxTempreatureValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualBrightnessValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualBrightnessValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlarmInProgress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlarmInProgress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsLight1Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsLight1Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsLight2Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsLight2Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsModule1Present)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsModule1Present)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsModule2Present)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsModule2Present)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Retour à la liste", "Index")
+        </div>
+    }
+</div>

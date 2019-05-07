@@ -1,0 +1,123 @@
+﻿@model IEnumerable<MontFort.Models.Room>
+
+@{
+    ViewBag.Title = "Liste des chambres";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Ajouter une nouvelle chambre", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomNbr)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsRoomDoorOpen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsBathroomDoorOpen)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.IsSmokeDetectorActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxSmokeValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualSmokeValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualHumidityLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxHumidityValue)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ActualTempreatureValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxTempreatureValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualBrightnessValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlarmInProgress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsLight1Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsLight2Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsModule1Present)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsModule2Present)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomNbr)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IsRoomDoorOpen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsBathroomDoorOpen)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.IsSmokeDetectorActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxSmokeValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualSmokeValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualHumidityLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxHumidityValue)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ActualTempreatureValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxTempreatureValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualBrightnessValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlarmInProgress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsLight1Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsLight2Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsModule1Present)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsModule2Present)
+        </td>*@
+        <td>
+            @Html.ActionLink("Modifier", "Edit", new { id=item.RoomNbr }) |
+            @Html.ActionLink("Détails", "Details", new { id=item.RoomNbr }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.RoomNbr })
+        </td>
+    </tr>
+}
+
+</table>
